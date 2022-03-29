@@ -12,14 +12,16 @@ function calculator() {
         return operator;
     }
 
+    const validOperators = ['+', '-', '*', '/'];
+    
     function checkOperator(operator) {
-        const result = operator === "+" || operator === "-" || operator === "*" || operator === "/";
+        const result = validOperators.includes(operator);
         if (!result) {
-            showPopup('Please, enter valid data! It must be +, -, * or /');
+            showPopup(`Please, enter valid data! It must be one of ${validOperators}`);
         }
         return result;
     }
-
+    
     function getDigitsCount(minCount, maxCount) {
         let digitsCount;
         do {
